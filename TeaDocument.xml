@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<caje hlavniDruh=""> <!-- hodnotou je matcha, sekaný list nebo celolistý -->
+    <caj název="" ceskyNazev=""> <!-- Čaj může a nemusí obsahovat český název -->
+        <druh></druh> <!-- druhů čajů je několik Olong, PuErh, Černý čaj, Bílý čaj, Zelený čaj, Žlutý čaj, Červený čaj -->
+        <puvod> <!-- diky původu lze snadno určit připravu čaje, čínské čaje jsou více fermentované a velice výrazné vúní, japonské čaje jsou výrazné svojí chutí, díky tomuto se i rozličuje způsob připravy a servírování -->
+            <zeme></zeme>
+            <oblast></oblast>
+        </puvod>
+        <pestovani>
+            <nadmorskaVyska></nadmorskaVyska> <!-- nadmořská výška určuje velikost lístků a potřebu množství lístů -->
+            <strom> <!-- v podstatě není čajovník jako čajovník je potřeba rozlyšovat jeho věk, mladé stromy jsou vhodné pro světlé čaje, staré stromy jsou určeny pro tmavé čaje -->
+                <druhStromu></druhStromu> <!-- strom může být divoký nebo člověkem vypěstovaný, divoké čajovníky mají tu vlastnost že v jejich listech je mnoho chutí a tyto chutě nejsou konstantní jako u pěstovaných čajovníků člověkem -->
+                <vek></vek>
+                <korenovePropojeni> <!-- samotný strom může "získat sílu" za využití propojení kořenových systémů a tím částečně získat vlastnosti staršího stromu -->
+                    <strom>
+                        <vek></vek>
+                    </strom>
+                </korenovePropojeni>
+            </strom>
+        </pestovani>
+        <vyroba>
+            <sber></sber> <!-- některé druhy čajů jsou zbírané ve více sezónách tzv. flush (1st flush jaro – je velice jemný a spíše vhodný pro světlé čaje) 2nd a 3rd flush (léto) je vhodný pro červené čaje, 4th flush je vhodný pro tmavé čaje s velice surovou chutí  -->
+            <fermentace></fermentace>
+            <suseni></suseni>
+            <oxidace></oxidace>
+        </vyroba>
+        <priprava>
+            <mnozstvi jednotky="g"></mnozstvi> <!-- množství je důležité pro plnost chuti čaje, pokud je dáno málo je čaj jemnější, pokud více je velice surový a chuť obsahuje úplnou strukturu -->
+            <voda> <!-- není důležitá pouze kvalita vody, ale její teplota a množství pokud použijeme malé množství vody pro velké množství čaje, tak čaj nedokáže vypustit požadované látky -->
+                <mnozstvi jednotky="ml"></mnozstvi>
+                <teplota></teplota> <!-- teplota ovlivňuje trpkost a chuť čaje, zelené čaje jsou velice čerstvé lístky, které při kontaktu se 100ºC vodou ztrpkne, zhořkne a je takřka nepoživatelný -->
+            </voda>
+            <cas jednotky="s"> <!-- čas má podobné účinky jako teplota avšak při správné teplotě mnoho čajů vydrží velice dlouhé nálevy -->
+                <prvniNalev></prvniNalev> <!-- u některých čajů je potřeba měnit čas nálevu podle pořadí nálevu, některé čaje se více rozevřou(lístky) a nabydou na objemu, díky tomu dokaží předat více látek během kratší doby -->
+                <druhyNalev></druhyNalev>
+                <tretiNalev></tretiNalev>
+                <ostatniNalevy></ostatniNalevy>
+            </cas> 
+            <druhNadobi> <!-- druh nádobí ovlivňuje chuť čaje, čaj který je připravovaný v nevyhovujícím nádobí nikdy nebude chuťově plný -->
+                <materiál></materiál> <!-- materiály se dělí podle jednotlivých provincií a oblastí, kde se vyrábějí například Tokoname nebo Bizen -->
+                <kalisek druh=""> <!-- Druh kalíšku je určen hlavním druhem čaje – Matcha se připravuje v čavanech, ale běžný sekaný nebo lístkový čaj se připravuje v konvičce -->
+                    <prumer jednotky="cm"></prumer> <!-- je dlůležité rozlyšovat jednotlivé druhy čajů a využívat jejich potenciál například číské čaje vyžadují vetší kalíšky z důvodu vychutnání si vůně i chuti-->
+                    <hloubka jednotky="cm"></hloubka>
+                    <objem jednotky="ml"></objem>
+                </kalisek>
+                <konvicka>
+                    <objem jednotky="ml"></objem>
+                </konvicka>
+            </druhNadobi>
+        </priprava>
+        <popis></popis> <!-- popis slouží k popsání chuti čaje -->        
+    </caj>
+</caje>
