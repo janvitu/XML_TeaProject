@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:h="http://www.w3.org/1999/xhtml"
-    targetNamespace="urn:x-vitj:schemas:tea:1.0"
-    xmlns="urn:x-vitj:schemas:tea:1.0" elementFormDefault="qualified">
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="urn:x-vitj07:schemas:tea:1.0"
+    xmlns="urn:x-vitj07:schemas:tea:1.0" elementFormDefault="qualified">
     
     <xs:element name="caje" type="cajeType" />
     
@@ -23,6 +23,7 @@
         </xs:sequence>
         <xs:attribute name="nazev" type="xs:string" />
         <xs:attribute name="ceskyNazev" type="xs:string" />
+        <xs:attribute name="nazevIMG" type="xs:string" />
     </xs:complexType>
     
     <!-- typ caje -->
@@ -67,7 +68,6 @@
         <xs:sequence>
             <xs:element name="druhStromu" type="druhStromuType" />
             <xs:element name="vek" type="xs:positiveInteger" />
-            <xs:element name="korenovePropojeni" type="korenovePropojeniType" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
     
@@ -77,18 +77,6 @@
             <xs:enumeration value="pestovany" />
         </xs:restriction>
     </xs:simpleType>
-    
-    <xs:complexType name="korenovePropojeniType">
-        <xs:sequence>
-            <xs:element name="pripojenyStrom" type="pripojenyStromType" minOccurs="0" />
-        </xs:sequence>
-    </xs:complexType>
-    
-    <xs:complexType name="pripojenyStromType">
-        <xs:sequence>
-            <xs:element name="vek" type="xs:positiveInteger" />
-        </xs:sequence>
-    </xs:complexType>
     
     <!-- vyroba -->
     <xs:complexType name="vyrobaType">
@@ -177,7 +165,7 @@
     <xs:complexType name="teplotaType">
         <xs:simpleContent>
             <xs:extension base="teplotaExtensionType">
-                <xs:attribute name="jednotky" type="jednotyTeplotaType" />
+                <xs:attribute name="jednotky" type="jednotkyTeplotaType" />
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
@@ -192,7 +180,7 @@
         </xs:restriction>
     </xs:simpleType>
     
-    <xs:simpleType name="jednotyTeplotaType">
+    <xs:simpleType name="jednotkyTeplotaType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="°C" />
             <xs:enumeration value="°F" />
@@ -202,13 +190,31 @@
    <!-- priprava cas -->
     <xs:complexType name="casType">
         <xs:sequence>
-            <xs:element name="prvniNalev" type="xs:positiveInteger" minOccurs="1" maxOccurs="1" />
-            <xs:element name="druhyNalev" type="xs:positiveInteger" minOccurs="0" maxOccurs="1" />
-            <xs:element name="tretiNalev" type="xs:positiveInteger" minOccurs="0" maxOccurs="1" />
-            <xs:element name="ostatniNalevy" type="xs:positiveInteger" minOccurs="0" maxOccurs="1" />
+            <xs:element name="nalev" type="nalevType" minOccurs="1" maxOccurs="4" />
         </xs:sequence>
         <xs:attribute name="jednotky" type="jednotkyBrewTimeType"></xs:attribute>
     </xs:complexType>
+    
+    <xs:complexType name="nalevType">
+        <xs:simpleContent>
+            <xs:extension base="nalevExtensionType">
+                <xs:attribute name="poradi" type="poradiInterval" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    
+    <xs:simpleType name="nalevExtensionType">
+        <xs:restriction base="xs:positiveInteger" />
+    </xs:simpleType>
+    
+    <xs:simpleType name="poradiInterval">
+        <xs:restriction base="xs:positiveInteger">
+            <xs:enumeration value="1" />
+            <xs:enumeration value="2" />
+            <xs:enumeration value="3" />
+            <xs:enumeration value="4" />
+        </xs:restriction>
+    </xs:simpleType>
     
     <xs:simpleType name="jednotkyBrewTimeType">
         <xs:restriction base="xs:string">

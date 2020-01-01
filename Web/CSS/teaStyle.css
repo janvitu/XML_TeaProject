@@ -1,0 +1,67 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: #333;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial;
+}
+
+.teaTop {
+    display: block;
+    height: 100vh;
+}
+
+.teaTop h1 {
+    display: block;
+}
+
+.teaTop h2 {
+    display: block;
+}
+
+.teaCenter {
+    height: 90vh;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.container {
+    display: flex;
+    color: #fff;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
+    padding: 20px;
+}
+
+.genInfo {
+    width: 100%;
+}
+
+.footer {
+    height: 10vh;
+    display: grid;
+    justify-content: center;
+    color: #fff;
+}
+
+.footer a {
+    text-decoration: none;
+}
+
+.prep {
+    width: 100%;
+}
+
+.genInfo.topRow {
+    display: flex;
+}
+
+.genInfo.topRow h3 {
+    display: inline-block;
+    width: 50%;
+}
+
+.genInfo.origin {
+    
+}
