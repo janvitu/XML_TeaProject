@@ -3,7 +3,7 @@
 <caje xmlns="urn:x-vitj07:schemas:tea:1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="urn:x-vitj07:schemas:tea:1.0 TeaSchema.xsd">
-    <caj nazev="neco" ceskyNazev="nic" nazevIMG="">
+    <caj nazev="neco" ceskyNazev="nic" nazevIMG="nepalJunChiybari.png">
         <typ>celolisty</typ>
         <druh>PuErh</druh>
         <puvod>
@@ -29,10 +29,10 @@
                 <teplota jednotky="°C">90</teplota>
             </voda>
             <cas jednotky="s">
-                <prvniNalev>30</prvniNalev>
-                <druhyNalev>15</druhyNalev>
-                <tretiNalev>10</tretiNalev>
-                <ostatniNalevy>10</ostatniNalevy>
+                <nalev poradi="1">30</nalev>
+                <nalev poradi="2">15</nalev>
+                <nalev poradi="3">10</nalev>
+                <nalev poradi="4">10</nalev>
             </cas>
             <druhNadobi>
                 <material>Tokoname</material>

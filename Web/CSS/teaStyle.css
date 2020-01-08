@@ -5,63 +5,149 @@ body {
     background: #333;
     justify-content: center;
     align-items: center;
-    font-family: Arial;
+    font-family: sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.topWithIMG {
+    position: relative;
+    background: rgba(0, 0, 0, 0.3)
+}
+
+
+img {
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 .teaTop {
-    display: block;
+    z-index: 1;
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: flex-end;
     height: 100vh;
+    color: #fff;
 }
 
 .teaTop h1 {
-    display: block;
+    margin-left: 50px;
+    margin-bottom: 0px;
+    font-size: 2rem;
+    font-weight: 900;
 }
 
 .teaTop h2 {
-    display: block;
+    margin-top: 5px;
+    margin-left: 50px;
+    margin-bottom: 100px;
+    font-weight: 300;
+    font-style: italic;
 }
 
 .teaCenter {
-    height: 90vh;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin: 10px 5% 20px 5%;
 }
 
 .container {
     display: flex;
     color: #fff;
     box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8);
-    padding: 20px;
+    padding: 1%;
 }
 
 .genInfo {
     width: 100%;
+    padding: 2%;
+    border-right: white solid .5px;
 }
 
-.footer {
-    height: 10vh;
-    display: grid;
-    justify-content: center;
-    color: #fff;
-}
-
-.footer a {
-    text-decoration: none;
-}
 
 .prep {
     width: 100%;
+    padding: 2%;
+    border-left: white solid .5px;
 }
 
-.genInfo.topRow {
+.topRow {
     display: flex;
 }
 
-.genInfo.topRow h3 {
+.topRow h3 {
     display: inline-block;
     width: 50%;
 }
 
-.genInfo.origin {
-    
+
+
+.btnBox {
+    display: flex;
+    justify-content: center;
+    margin: 5%;
+}
+
+
+.btn-one {
+    line-height: 50px;
+	height: 50px;
+	text-align: center;
+	width: 250px;
+    cursor: pointer;
+
+	color: #FFF;
+	transition: all 0.3s;
+	position: relative;
+}
+.btn-one span {
+    color: #FFF;
+    text-decoration: none;
+
+	transition: all 0.3s;
+}
+.btn-one::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	opacity: 0;
+	transition: all 0.3s;
+	border-top-width: 1px;
+	border-bottom-width: 1px;
+	border-top-style: solid;
+	border-bottom-style: solid;
+	border-top-color: rgba(255,255,255,0.3);
+	border-bottom-color: rgba(255,255,255,0.3);
+	transform: scale(0.1, 1);
+}
+.btn-one:hover span {
+	letter-spacing: 2px;
+}
+.btn-one:hover::before {
+	opacity: 1;	
+	transform: scale(1, 1);	
+}
+.btn-one::after {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 1;
+	transition: all 0.3s;
+	background-color: rgba(255,255,255,0.1);
+}
+.btn-one:hover::after {
+	opacity: 0;	
+	transform: scale(0.1, 1);
 }

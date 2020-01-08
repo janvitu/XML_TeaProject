@@ -2,8 +2,7 @@
 
 <xsl:stylesheet version="2.0"
     xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    exclude-result-prefixes="xs"
-    >
+    exclude-result-prefixes="xs" xpath-default-namespace="urn:x-vitj07:schemas:tea:1.0">
     
     <xsl:output name="html" version="5" encoding="UTF-8"/>
     <xsl:variable name="imgFolder" select="'Web/img/'"/>
@@ -46,7 +45,8 @@
         </div>
     </div>
 -->
-    <xsl:template match="caje/caj">  
+    <xsl:template match="caje/caj">
+        <xsl:variable name="imgName" select="@nazevIMG"/> 
         <div class="card">
             <xsl:if test="typ='matcha'">
                 <div class="face face1 matcha">
@@ -94,50 +94,83 @@
                     <title><xsl:value-of select="@nazev"/></title>
                 </head>
                 <body>
-                    <section class="teaTop">
-                        <h1><xsl:value-of select="@nazev"/></h1>
-                        <xsl:if test="@ceskyNazev!=''">
-                            <h2><xsl:value-of select="@ceskyNazev"/></h2>
-                        </xsl:if>
-                    </section>
+                    <div class="topWithIMG">
+                        <img src="../img/{$imgName}" />
+                        <section class="teaTop">
+                            <h1><xsl:value-of select="@nazev"/></h1>
+                            <xsl:if test="@ceskyNazev!=''">
+                                <h2><xsl:value-of select="@ceskyNazev"/></h2>
+                            </xsl:if>    
+                        </section>
+                    </div>
                     
+
                     <section class="teaCenter">
                         <div class="container">
                             <div class="genInfo">
-                                <div class="genInfo topRow">
+                                <div class="topRow">
                                     <h3>Typ: <xsl:value-of select="typ"/></h3>
                                     <h3>Druh: <xsl:value-of select="druh"/></h3>
                                 </div>
-                                <div class="genInfo origin">
+                                <div class="origin">
                                     <h3>Původ</h3>
-                                    <p>Země původu: <xsl:value-of select="puvod/zeme"/></p>
-                                    <p>Země původu: <xsl:value-of select="puvod/oblast"/></p>
+                                    <ul>
+                                        <li>Země původu: <xsl:value-of select="puvod/zeme"/></li>
+                                        <li>Země původu: <xsl:value-of select="puvod/oblast"/></li>
+                                    </ul>
                                 </div>
-                                <div class="genInfo growth">
+                                <div class="growth">
                                     <h3>Pěstování</h3>
-                                    <p>Nadmořská výška: <xsl:value-of select="pestovani/nadmorskaVyska"/> nm</p>
-                                    <div class="genInfo growth tree">
+                                    <ul>
+                                        <li>Nadmořská výška: <xsl:value-of select="pestovani/nadmorskaVyska"/> nm</li>
+                                    </ul>
+                                    <div class="growth tree">
                                         <p>Strom</p>
-                                        <p>Druh stromu: <xsl:value-of select="pestovani/strom/druhStromu"/></p>
-                                        <p>Věk stromu: <xsl:value-of select="pestovani/strom/vek"/></p>
+                                        <ul>
+                                            <li>Druh stromu: <xsl:value-of select="pestovani/strom/druhStromu"/></li>
+                                            <li>Věk stromu: <xsl:value-of select="pestovani/strom/vek"/></li>
+                                        </ul>
                                     </div>
                                 </div>
-                                <div class="genInfo production">
+                                <div class="production">
                                     <h3>Výroba</h3>
-                                    <p>Sklizeň: <xsl:value-of select="vyroba/sklizen"/></p>
-                                    <p>Fermentace: <xsl:value-of select="vyroba/fermentace"/></p>
-                                    <p>Oxidace: <xsl:value-of select="vyroba/oxidace"/></p>
+                                    <ul>
+                                        <li>Sklizeň: <xsl:value-of select="vyroba/sklizen"/></li>
+                                        <li>Fermentace: <xsl:value-of select="vyroba/fermentace"/></li>
+                                        <li>Oxidace: <xsl:value-of select="vyroba/oxidace"/></li>
+                                    </ul>
                                 </div>
                             </div>
                             <div class="prep">
                                 <h3>Příprava Čaje</h3>
-                                <p>Množství: <xsl:value-of select="priprava/mnozstvi"/> <xsl:value-of select="priprava/mnozstvi/@jednotky"/></p>
+                                <ul>
+                                    <li>Množství: <xsl:value-of select="priprava/mnozstvi"/> <xsl:value-of select="priprava/mnozstvi/@jednotky"/></li>
+                                </ul>
                                 <h3>Voda</h3>
                                 <ul>
                                     <li>Množství: <xsl:value-of select="priprava/voda/mnozstvi"/> <xsl:value-of select="priprava/voda/mnozstvi/@jednotky"/></li>
                                     <li>Teplota: <xsl:value-of select="priprava/voda/teplota"/> <xsl:value-of select="priprava/voda/teplota/@jednotky"/></li>
                                 </ul>
+                                <h3>Nalevy</h3>
                                 
+                                <ul>
+                                    <xsl:for-each select="/caje/caj/priprava/cas/nalev">                                        
+                                        <li>
+                                            <xsl:if test="count(../nalev) = 1">
+                                                vsechny nalevy <xsl:value-of select="."/> <xsl:value-of select="../@jednotky"/>.
+                                            </xsl:if>
+                                            <xsl:if test="count(../nalev) > 1">
+                                                <xsl:if test="position() = last()">
+                                                    dalsi nalevy <xsl:value-of select="."/> <xsl:value-of select="../@jednotky"/>.
+                                                </xsl:if>
+                                                <xsl:if test="position() != last()">
+                                                    <xsl:value-of select="@poradi"/>. nalev <xsl:value-of select="."/> <xsl:value-of select="../@jednotky"/>, 
+                                                </xsl:if>
+                                            </xsl:if>
+                                        </li>
+                                        
+                                    </xsl:for-each>
+                                </ul>
                                 <h3>Nádobí</h3>
                                 <ul>
                                     <li>Materiál: <xsl:value-of select="priprava/druhNadobi/material"/></li>
@@ -148,15 +181,21 @@
                                             <li>Objem: <xsl:value-of select="priprava/druhNadobi/kalisek/objem"/> <xsl:value-of select="priprava/druhNadobi/kalisek/objem/@jednotky"/></li>
                                         </ul>
                                     </li>
-                                    <li>Konvička 
-                                        <p>Objem: <xsl:value-of select="priprava/druhNadobi/konvicka/objem"/> <xsl:value-of select="priprava/druhNadobi/konvicka/objem/@jednotky"/></p>
+                                    <li>Konvička
+                                        <ul>
+                                            <li>Objem: <xsl:value-of select="priprava/druhNadobi/konvicka/objem"/> <xsl:value-of select="priprava/druhNadobi/konvicka/objem/@jednotky"/></li>
+                                        </ul>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </section>
-                    <div class="footer">
-                        <a href="index.html">GO BACK</a>
+                    <div class="btnBox">
+                        <a href="index.html">
+                            <div class="btn-one">
+                                <span>VRÁTIT SE</span>
+                            </div>
+                        </a>
                     </div>
                 </body>
             </html>
