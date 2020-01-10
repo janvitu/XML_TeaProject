@@ -95,7 +95,7 @@
                 </head>
                 <body>
                     <div class="topWithIMG">
-                        <img src="../img/{$imgName}" />
+                        <img src="../img/teas/{$imgName}" />
                         <section class="teaTop">
                             <h1><xsl:value-of select="@nazev"/></h1>
                             <xsl:if test="@ceskyNazev!=''">
@@ -154,7 +154,7 @@
                                 <h3>Nalevy</h3>
                                 
                                 <ul>
-                                    <xsl:for-each select="/caje/caj/priprava/cas/nalev">                                        
+                                    <xsl:for-each select="./priprava/cas/nalev">                                        
                                         <li>
                                             <xsl:if test="count(../nalev) = 1">
                                                 vsechny nalevy <xsl:value-of select="."/> <xsl:value-of select="../@jednotky"/>.
