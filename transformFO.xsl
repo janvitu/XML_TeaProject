@@ -75,7 +75,7 @@
     </xsl:template>
 
     <xsl:template match="/caje/caj" mode="content">
-        <fo:block id="{generate-id(@nazev)}" padding="3mm" border-style="solid" border-color="Gainsboro">
+        <fo:block id="{generate-id(@nazev)}" padding="3mm" page-break-before="always" border-style="solid" border-color="Gainsboro">
             <fo:table>
                 <fo:table-body>
                     <fo:table-row>
