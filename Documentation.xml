@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbookxi.rng" schematypens="http://relaxng.org/ns/structure/1.0" ?>
+<?xml-model href="http://docbook.org/xml/5.0/rng/docbook.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron" ?>
+<book xmlns="http://docbook.org/ns/docbook" xmlns:xi="http://www.w3.org/2001/XInclude" xmlns:xlink="http://www.w3.org/1999/xlink" version="5.0">
+    <info>
+        <title>Přehled Čajů</title>
+        <author>
+            <personname>Jan Vítů</personname>
+            <email>vitj07@vse.cz</email>
+        </author>
+        <orgname>Vysoká škola ekonomická v Praze</orgname>
+        <copyright>
+            <year>2020</year>
+        </copyright>
+    </info>
+
+    <preface>
+        <title>Úvod</title>
+        <para> Tento dokument obsahuje dokumentaci k semestrální práci pro předmět 4IZ238 zaměřený na XML technologie na Vysoké škole ekonomické v Praze. Projekt se věnuje zpracování seznamu čajů spolu s jeho specifikacemi a přípravou. Tyto informace jsou převáděny do HTML a PDF</para>
+    </preface>
+
+    <part>
+        <title>Projekt</title>
+        <chapter>
+            <title>Zadání</title>
+            <para>Práce se bude zaměřovat na popis jednotlivých druhů čajů a jejich rozdělení. Čaje lze rozdělovat podle druhů původu a oblasti nebo země ze které pocházejí.</para>
+            <sect1>
+                <title>Řešení</title>
+                <para>Výstupem systému je seznam čajů jak do formy PDF tak do formy webové stránky (HTML, CSS). Výstup vyobrazuje seznam čajů, který na webové stránce lze rozlyšit podle přiřazeného obrázku.</para>
+            </sect1>
+        </chapter>
+    </part>
+
+    <part>
+        <title>Implementace</title>
+
+        <chapter>
+            <title>XML</title>
+            <para>
+                <emphasis>XML (Extensible Markup Language)</emphasis>
+                je standardizovaný značkovací jazyk sloužící pro výměnu dat mezi systémy. Popisuje strukturu vyměňovaného obsahu a přiřazuje význam jednotlivým hodnotám. Existuje řada technologií, které respektují syntaktická pravidla XML a dokáží například transformovat XML dokument do jiných formátů bez nutnosti externího programovacího jazyka.
+            </para>
+            <sect1>
+                <title>XML Dokument</title>
+                <para>
+                    XML dokument
+                    <code>TeaDocument.xml</code>
+                    je ukázkou validního XML souboru pro účel systému. Kořenovým elementem dokumentu je seznam čajů
+                    <code>&lt;caje&gt;</code>
+                    obsahující jednotlivé čaje
+                    <code>&lt;caj&gt;</code>
+                    .
+                    Čaj obsahuje atributy název, český název a názevIMG. Čaj dále obsahuje elementy druh
+                    <code>&lt;druh&gt;</code>
+                    , typ
+                    <code>&lt;typ&gt;</code>
+                    , původ
+                    <code>&lt;puvod&gt;</code>
+                    , pěstování
+                    <code>&lt;pestovani&gt;</code>
+                    , výroba
+                    <code>&lt;vyroba&gt;</code>
+                    , příprava
+                    <code>&lt;priprava&gt;</code>
+                    , a popis
+                    <code>&lt;popis&gt;</code>
+                </para>
+            </sect1>
+            <sect1>
+                <title>Významy elementů</title>
+                <para>Typ – určuje typ čaje (celolistý, sekaný nebo matcha[mača])</para>
+                <para>Druh – určuje druh čaje</para>
+                <para>
+                    Původ – element specifikuje detailnější informace o původu čaje a obsahuje následující elementy:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <code>zeme</code>
+                            : země původu
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <code>oblast</code>
+                            : oblast původu
+                        </para>
+                    </listitem>
+                </itemizedlist>
+
+                <para> Pěstování – odhaluje přesnější informace o zacházení s čaje s ohledem na pěstování a obsehuje tyto elementy:</para>
+
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <code>nadmorskaVyska</code>
+                            : nadmořská výška, ve které byl čaj pěstován
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <code>strom</code>
+                            : informace o stromu, na kterém byl čaj pěstován
+                        </para>
+                    </listitem>
+                </itemizedlist>
+                <para>Výroba – informace o výrobě a druhu zacházení s čajem při výrobě. Díky těmto informacím lze i zjistit kvalitu čaje. Element Výroba obsahuje následující elementy:</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <code>sklizen</code>
+                            : informace o sklizni (zpravidla 3. sklizeň nejhorší – období monzunů čaj nemá plnou chuť kvůli nedostatku slunce)
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <code>fermentace</code>
+                            : informace o úrovni fermentace (v Číně více fermentované čaje v Japonsku spíše nefermentované)
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <code>oxidace</code>
+                            : určuje míru oxidace čaje (více oxidované čaje nemají tak surovou chuť jsou, chuť je kulatější a vyjadřuje schopnost čajového mistra)
+                        </para>
+                    </listitem>
+                </itemizedlist>
+
+                <para>Příprava – jedna z nejdůležitějších částí samotného zpracování čaje je samotná příprava. I z velice nekvalitního čaje lze udělat velice chutný nálev, kterému nechybí celé spektrum chutí. Příprava obsahuje následující elementy</para>
+                <itemizedlist>
+                    <listitem>
+                        <para>
+                            <code>mnozstvi</code>
+                            : informace o množství čaje
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <code>voda</code>
+                            : obsahuje informace o teplotě a o množství vody
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <code>cas</code>
+                            : tento element obsahuje informace o jednotlivých nálevech a jejich délce
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <code>druhNadobi</code>
+                            : doporučený druh nádobí pro pití čaje
+                        </para>
+                    </listitem>
+                    <listitem>
+                        <para>
+                            <code>popis</code>
+                            : popis základní chutě čaje
+                        </para>
+                    </listitem>
+                </itemizedlist>
+            </sect1>
+            <sect1>
+                <title>Čaj</title>
+                <para>Příklad validního uzlu čaj v XML dokumentu.</para>
+                <programlisting>
+                    <![CDATA[ 
+<caj nazev="Hadong Hwangcha" ceskyNazev="" nazevIMG="hadongHwangcha.png">
+    <typ>celolisty</typ>
+    <druh>Olong</druh>
+    <puvod>
+        <zeme>Jížní Korea</zeme>
+        <oblast>Boseong</oblast>
+    </puvod>
+    <pestovani>
+        <strom>
+            <druhStromu>pestovany</druhStromu>
+            <vek>1000</vek>
+        </strom>
+    </pestovani>
+    <vyroba>
+        <sklizen>2. sklizen</sklizen>
+        <fermentace>castecne fermentovany</fermentace>
+        <oxidace>plne oxidovany</oxidace>
+    </vyroba>
+    <priprava>
+        <mnozstvi jednotky="g">4</mnozstvi>
+        <voda>
+            <mnozstvi jednotky="ml">200</mnozstvi>
+            <teplota jednotky="°C">85</teplota>
+        </voda>
+        <cas jednotky="s">
+            <nalev poradi="1">60</nalev>
+            <nalev poradi="2">60</nalev>
+            <nalev poradi="3">70</nalev>
+            <nalev poradi="4">80</nalev>
+        </cas>
+        <druhNadobi>
+            <material>Tokoname</material>
+            <kalisek>
+                <prumer jednotky="cm">10</prumer>
+                <hloubka jednotky="cm">10</hloubka>
+            </kalisek>
+            <konvicka>
+                <objem jednotky="ml">200</objem>
+            </konvicka>
+        </druhNadobi>
+    </priprava>
+    <popis>Oranžovo zlatavý nálev vyvážené, sametově hebké až krémové viskozity plný hutných tónů lesního medu, pryskyřice, sladu a pečených kaštanů.</popis>
+</caj>
+                    ]]>
+                </programlisting>
+
+            </sect1>
+        </chapter>
+        <chapter>
+            <title>Schéma</title>
+            <para>
+                <emphasis>XML Schéma</emphasis>
+                je standardizovaný XML formát pro popis schémat.
+                Pomocí struktur diskutovaného jazyka byly definovány pravidla pro validní XML
+                dokument. Standard nabízí množinu běžných datových typů jako např.
+                <code>string</code>
+                ,
+                <code>integer</code>
+                nebo
+                <code>date</code>
+                a mnoho
+                dalších. Ty umožňuje dále zužovat podmínkami dle libosti. XML schéma rozlišuje mezi
+                jednoduchými a komplexními typy. Jednoduchý typem může být element bez atributu a
+                bez vnořeného elementu nebo samotný atribut. Jestliže element porušuje jednu z
+                těchto podmínek, jedná se o komplexní typ.
+            </para>
+            <sect1>
+                <title>Validační soubor</title>
+
+                <para>
+                    Definice schéma je obsažena v souboru
+                    <code>TeaSchema.xsd</code>
+                    . Schéma
+                        definuje jmenný prostor
+                    <code>urn:x-vitj07:schemas:tea:1.0</code>
+                    . Ten
+                        je definován v kořenovém elementu
+                    <code>&lt;xs:schema&gt;</code>
+                    , který obsahuje
+                        definice validních typů, jejichž významy byly popsány v předchozí
+                        kapitole.
+                </para>
+            </sect1>
+
+            <sect1>
+
+                <title>Jednoduché typy </title>
+                <para>Ukázka jednoduchého datového typu je možné vidět níže.</para>
+                <programlisting>
+                    <![CDATA[
+<xs:simpleType name="sklizenType">
+    <xs:restriction base="xs:string">
+        <xs:enumeration value="1. sklizen" />
+        <xs:enumeration value="2. sklizen" />
+        <xs:enumeration value="3. sklizen" />
+        <xs:enumeration value="4. sklizen" />
+    </xs:restriction>
+</xs:simpleType>
+                        ]]>
+                </programlisting>
+            </sect1>
+            <sect1>
+                <title>Komplexní typy</title>
+                <para>Scéma dále obsahuje několik komplexních datových typů, které využívají datové typy jednoduché např. pro validaci. Níže je ukázka komplexního datového typu.</para>
+                <programlisting>
+                    <![CDATA[
+<xs:complexType name="cajType">
+    <xs:sequence>
+        <xs:element name="typ" type="typType" />
+        <xs:element name="druh" type="druhType" />
+        <xs:element name="puvod" type="puvodType" />
+        <xs:element name="pestovani" type="pestovaniType" minOccurs="0" />
+        <xs:element name="vyroba" type="vyrobaType" minOccurs="0" />
+        <xs:element name="priprava" type="pripravaType" />
+        <xs:element name="popis" type="xs:string" />
+    </xs:sequence>
+    <xs:attribute name="nazev" type="xs:string" />
+    <xs:attribute name="ceskyNazev" type="xs:string" />
+    <xs:attribute name="nazevIMG" type="xs:string" />
+</xs:complexType>
+                    ]]>
+                </programlisting>
+            </sect1>
+        </chapter>
+        <chapter>
+            <title>XSLT</title>
+            <para>
+                <emphasis>XSLT (XML Transformation)</emphasis>
+                je šablonovací jazyk popisující
+                pravidla transformace skrze XSLT procesor do požadovaného výstupního souboru (XML,
+                HTML, XHTML apod.). Využívá se při tom mimojiné šablonovacích konstrukcí, podmínek
+                pro výpis uzlů a zápis pravidel pomocí XML má objektový nádech. K průchodu, výpisu
+                nebo např. seskupování uzlů XML dokumentu se v XSLT stylu používá jazyk
+                <emphasis>Xpath</emphasis>
+                .
+            </para>
+
+            <sect1>
+                <title>Výstup do HTML</title>
+                <para>
+                    Šablona pro výstup do HTML je definována v souboru
+                    <code>reservation.xsl</code>
+                    . Pomocí konstrukce
+                    <code>xsl:result-document</code>
+                    je docíleno generování HTML souborů do
+                několika navzájem provázaných stránek (2 druhy – index a vygenerovaná stránky pro čaj).
+                Základní template je vyobrazen níže
+                </para>
+                <programlisting>
+                    <![CDATA[
+<xsl:template match="/">
+    <xsl:result-document href="Web/HTML/index.html" format="html">
+        <html>
+            <head>
+                <link rel="stylesheet" type="text/css" href="../CSS/style.css" />
+                <title>Tea Selection</title>
+            </head>
+            <body>
+                <div class="heading">
+                    <h1>Tea Collection</h1>
+                </div>
+                <div class="container">
+                    <xsl:apply-templates />
+                </div>
+            </body>
+        </html>
+    </xsl:result-document>
+</xsl:template>
+                    ]]>
+                </programlisting>
+            </sect1>
+            <sect1>
+                <title>CSS</title>
+                <para>
+                    <emphasis>Kaskádové styly (Cascading Stylesheets)</emphasis>
+                    definují vzhled
+                    obsahu HTML stránek. Oděluje se tak vzhled od obsahu. Narozdíl od XSL nejsou
+                    primárně určeny na přidávání obsahu. Přesto v CSS 3 lze v omezené míře
+                    pseudoelementy obsah do HTML přidávat.
+                </para>
+                <para>
+                    Příkladem přidání vizuálního obsahu je následující ukázka použitá v rámci
+                    projektu na oddělování jednotlivých rezervací.
+                    <programlisting>
+                        <![CDATA[
+.btn-one::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.3s;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-top-color: rgba(255,255,255,0.3);
+    border-bottom-color: rgba(255,255,255,0.3);
+    transform: scale(0.1, 1);
+}
+                        ]]>
+                    </programlisting>
+                </para>
+            </sect1>
+        </chapter>
+        <chapter>
+            <title>Formátovací Objekty</title>
+            <para>
+                <emphasis>XSL FO (XSL Formatting Objects)</emphasis>
+                je hojně využívaný standard
+                pro transformaci XML dokumentů do elektronických i tištěných formátů jako PDF nebo
+                EPUB. Formátovací objekty lze chápat jako zjednodušená obdoba CSS. Narozdíl od
+                výstupu do HTML se výstup do PDF provádí ve 2 krocích. V prvním kroku se pomocí XSL
+                dokument přetransformuje do podoby s formátovacími objekty. V druhém kroku probíhá
+                samotné generování souboru určenému k tisku.
+            </para>
+            <para>
+                Souborem který transformuje XML do FO je
+                <code>reservationFO.xsl</code>
+                Ačkoliv
+                konstrukce formátovacích objektů se pojmenováním liší od elementů používaných v
+                HTML, vypisování hodnot pomocí XSL zůstává stejné. Proto lze s lehkými modifikacemi
+                využít konstrukcí použitých pro generování HTML souborů. Výstup do PDF je stejně
+                jako v HTML prolinkován odkazy.
+            </para>
+        </chapter>
+    </part>
+</book>

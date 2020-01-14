@@ -1,22 +1,160 @@
-<?xml version="1.1" encoding="UTF-8"?>
-<?xml-stylesheet href="transformHTML.xsl" type="text/xsl"?>
-<caje xmlns="urn:x-vitj07:schemas:tea:1.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="urn:x-vitj07:schemas:tea:1.0 TeaSchema.xsd">
-    <caj nazev="neco" ceskyNazev="nic" nazevIMG="nepalJunChiybari.png">
+<?xml version="1.1" encoding="UTF-8" ?>
+<?xml-stylesheet href="transformHTML.xsl" type="text/xsl" ?>
+<caje xmlns="urn:x-vitj07:schemas:tea:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:x-vitj07:schemas:tea:1.0 TeaSchema.xsd">
+    <caj nazev="Hadong Hwangcha" ceskyNazev="" nazevIMG="hadongHwangcha.png">
         <typ>celolisty</typ>
-        <druh>PuErh</druh>
+        <druh>Olong</druh>
         <puvod>
-            <zeme>Hovnovice z Hoven</zeme>
-            <oblast></oblast>
+            <zeme>Jížní Korea</zeme>
+            <oblast>Boseong</oblast>
         </puvod>
         <pestovani>
-            <nadmorskaVyska>200</nadmorskaVyska>
             <strom>
-                <druhStromu>divoky</druhStromu>
+                <druhStromu>pestovany</druhStromu>
                 <vek>1000</vek>
             </strom>
         </pestovani>
+        <vyroba>
+            <sklizen>2. sklizen</sklizen>
+            <fermentace>castecne fermentovany</fermentace>
+            <oxidace>plne oxidovany</oxidace>
+        </vyroba>
+        <priprava>
+            <mnozstvi jednotky="g">4</mnozstvi>
+            <voda>
+                <mnozstvi jednotky="ml">200</mnozstvi>
+                <teplota jednotky="°C">85</teplota>
+            </voda>
+            <cas jednotky="s">
+                <nalev poradi="1">60</nalev>
+                <nalev poradi="2">60</nalev>
+                <nalev poradi="3">70</nalev>
+                <nalev poradi="4">80</nalev>
+            </cas>
+            <druhNadobi>
+                <material>Tokoname</material>
+                <kalisek>
+                    <prumer jednotky="cm">10</prumer>
+                    <hloubka jednotky="cm">10</hloubka>
+                </kalisek>
+                <konvicka>
+                    <objem jednotky="ml">200</objem>
+                </konvicka>
+            </druhNadobi>
+        </priprava>
+        <popis>Oranžovo zlatavý nálev vyvážené, sametově hebké až krémové viskozity plný hutných tónů lesního medu, pryskyřice, sladu a pečených kaštanů.</popis>
+    </caj>
+    <caj nazev="Aged Oolong" ceskyNazev="" nazevIMG="agedOolong.png">
+        <typ>celolisty</typ>
+        <druh>Olong</druh>
+        <puvod>
+            <zeme>Čína</zeme>
+            <oblast>Ming Jan</oblast>
+        </puvod>
+        <pestovani>
+            <nadmorskaVyska>350</nadmorskaVyska>
+            <strom>
+                <druhStromu>pestovany</druhStromu>
+            </strom>
+        </pestovani>
+        <vyroba>
+            <sklizen>1. sklizen</sklizen>
+            <fermentace>castecne fermentovany</fermentace>
+            <oxidace>castecne oxidovany</oxidace>
+        </vyroba>
+        <priprava>
+            <mnozstvi jednotky="g">5</mnozstvi>
+            <voda>
+                <mnozstvi jednotky="ml">350</mnozstvi>
+                <teplota jednotky="°C">85</teplota>
+            </voda>
+            <cas>
+                <nalev poradi="1">80</nalev>
+            </cas>
+            <druhNadobi>
+                <material>Porcelan</material>
+                <kalisek>
+                    <prumer jednotky="cm">12</prumer>
+                    <hloubka jednotky="cm">8</hloubka>
+                </kalisek>
+                <konvicka>
+                    <objem>400</objem>
+                </konvicka>
+            </druhNadobi>
+        </priprava>
+        <popis>Nálev zlatě zelené barvy, intenzivní exotické chuti s převahou grapefruitu, pomela a ženšenu.</popis>
+    </caj>
+    <caj nazev="Mengla Gushu Bing Cha" ceskyNazev="" nazevIMG="menglaGushuBingCha.png">
+        <typ>celolisty</typ>
+        <druh>PuErh</druh>
+        <puvod>
+            <zeme>Čína</zeme>
+            <oblast>Meng La, Xi Shuang Banna</oblast>
+        </puvod>
+        <vyroba>
+            <sklizen>1. sklizen</sklizen>
+            <fermentace>castecne fermentovany</fermentace>
+            <oxidace>castecne oxidovany</oxidace>
+        </vyroba>
+        <priprava>
+            <mnozstvi jednotky="g">5</mnozstvi>
+            <voda>
+                <mnozstvi jednotky="ml">150</mnozstvi>
+                <teplota jednotky="°C">100</teplota>
+            </voda>
+            <cas>
+                <nalev poradi="1">10</nalev>
+                <nalev poradi="2">20</nalev>
+            </cas>
+            <druhNadobi>
+                <material>Tokoname</material>
+                <kalisek>
+                    <prumer jednotky="cm">5</prumer>
+                    <hloubka jednotky="cm">6</hloubka>
+                </kalisek>
+                <konvicka>
+                    <objem jednotky="ml">200</objem>
+                </konvicka>
+            </druhNadobi>
+        </priprava>
+        <popis>Zlatě zelený, nálev velmi příjemné minerální, hebké krémové chuti se sladce peprnými tóny, stopou vanilky, máty a s bylinně dřevitým euforizujícím dozvukem, který trvá nekonečně dlouho.</popis>
+    </caj>
+    <caj nazev="Jeju Malcha" ceskyNazev="korejská matcha" nazevIMG="jejuMalcha.png">
+        <typ>matcha</typ>
+        <druh>Zelený čaj</druh>
+        <puvod>
+            <zeme>Jižní Korea</zeme>
+            <oblast>Jeju [Čedžu]</oblast>
+        </puvod>
+        <vyroba>
+            <sklizen>1. sklizen</sklizen>
+        </vyroba>
+        <priprava>
+            <mnozstvi jednotky="g">8</mnozstvi>
+            <voda>
+                <mnozstvi jednotky="dcl">2</mnozstvi>
+                <teplota jednotky="°C">60</teplota>
+            </voda>
+            <cas>
+                <nalev>20</nalev>
+            </cas>
+            <druhNadobi>
+                <material>Porcelan</material>
+                <kalisek>
+                    <prumer jednotky="cm">15</prumer>
+                    <hloubka jednotky="cm">8</hloubka>
+                </kalisek>
+            </druhNadobi>
+        </priprava>
+        <popis>Typická živá zelená matcha jak v suchém stavu, tak i po zalití vodou a našlehání. Plná, hutná, vydatná, sladká, řízná vegetální chuť se stopou citrusu a pomerančové kůry. Velmi osvěžující a povzbuzující čaj.</popis>
+    </caj>
+    <caj nazev="BIO Sencha Shion" nazevIMG="senchaShion.png">
+        <typ>sekany</typ>
+        <druh>Zelený čaj</druh>
+        <puvod>
+            <zeme>Japonsko</zeme>
+            <oblast>Kagoshima</oblast>
+        </puvod>
         <vyroba>
             <sklizen>1. sklizen</sklizen>
             <fermentace>nefermentovany</fermentace>
@@ -25,27 +163,17 @@
         <priprava>
             <mnozstvi jednotky="g">5</mnozstvi>
             <voda>
-                <mnozstvi jednotky="ml">250</mnozstvi>
-                <teplota jednotky="°C">90</teplota>
+                <mnozstvi jednotky="ml">200</mnozstvi>
+                <teplota jednotky="°C">60</teplota>
             </voda>
-            <cas jednotky="s">
-                <nalev poradi="1">30</nalev>
+            <cas>
+                <nalev poradi="1">50</nalev>
                 <nalev poradi="2">15</nalev>
-                <nalev poradi="3">10</nalev>
-                <nalev poradi="4">10</nalev>
             </cas>
             <druhNadobi>
-                <material>Tokoname</material>
-                <kalisek>
-                    <prumer jednotky="cm">10</prumer>
-                    <hloubka jednotky="cm">10</hloubka>
-                    <objem jednotky="ml">200</objem>
-                </kalisek>
-                <konvicka>
-                    <objem jednotky="ml">200</objem>
-                </konvicka>
+                <material>Bizen</material>
             </druhNadobi>
         </priprava>
-        <popis>Something new</popis>
+        <popis>Nálev světle zelené, jemně mléčné barvy, plné, hutné, intenzivní, sladce krémové chuti s výraznou umami chutí, tóny nezralých vlašských ořechů a lučních trav. V dlouhém chuťovém dozvuku se mísí lehká peprnost s vůní asijské kuchyně.</popis>
     </caj>
 </caje>

@@ -1,16 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
-    targetNamespace="urn:x-vitj07:schemas:tea:1.0"
-    xmlns="urn:x-vitj07:schemas:tea:1.0" elementFormDefault="qualified">
-    
+<?xml version="1.0" encoding="UTF-8" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="urn:x-vitj07:schemas:tea:1.0" xmlns="urn:x-vitj07:schemas:tea:1.0" elementFormDefault="qualified">
+
     <xs:element name="caje" type="cajeType" />
-    
+
     <xs:complexType name="cajeType">
         <xs:sequence>
-            <xs:element name="caj" type="cajType" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="caj" type="cajType" minOccurs="0" maxOccurs="unbounded" />
         </xs:sequence>
     </xs:complexType>
-    
+
     <xs:complexType name="cajType">
         <xs:sequence>
             <xs:element name="typ" type="typType" />
@@ -25,7 +23,7 @@
         <xs:attribute name="ceskyNazev" type="xs:string" />
         <xs:attribute name="nazevIMG" type="xs:string" />
     </xs:complexType>
-    
+
     <!-- typ caje -->
     <xs:simpleType name="typType">
         <xs:restriction base="xs:string">
@@ -34,7 +32,7 @@
             <xs:enumeration value="sekany" />
         </xs:restriction>
     </xs:simpleType>
-    
+
     <!-- druh caje -->
     <xs:simpleType name="druhType">
         <xs:restriction base="xs:string">
@@ -47,37 +45,37 @@
             <xs:enumeration value="Červený čaj" />
         </xs:restriction>
     </xs:simpleType>
-    
+
     <!-- puvod caje -->
     <xs:complexType name="puvodType">
         <xs:sequence>
             <xs:element name="zeme" type="xs:string" />
-            <xs:element name="oblast" type="xs:string" />
+            <xs:element name="oblast" type="xs:string" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
-    
+
     <!-- pestovani -->
     <xs:complexType name="pestovaniType">
         <xs:sequence>
-            <xs:element name="nadmorskaVyska" type="xs:positiveInteger" />
-            <xs:element name="strom" type="stromType" />
+            <xs:element name="nadmorskaVyska" type="xs:positiveInteger" minOccurs="0" />
+            <xs:element name="strom" type="stromType" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
-    
+
     <xs:complexType name="stromType">
         <xs:sequence>
-            <xs:element name="druhStromu" type="druhStromuType" />
-            <xs:element name="vek" type="xs:positiveInteger" />
+            <xs:element name="druhStromu" type="druhStromuType" minOccurs="0" />
+            <xs:element name="vek" type="xs:positiveInteger" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
-    
+
     <xs:simpleType name="druhStromuType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="divoky" />
             <xs:enumeration value="pestovany" />
         </xs:restriction>
     </xs:simpleType>
-    
+
     <!-- vyroba -->
     <xs:complexType name="vyrobaType">
         <xs:sequence>
@@ -86,7 +84,7 @@
             <xs:element name="oxidace" type="oxidaceType" minOccurs="0" />
         </xs:sequence>
     </xs:complexType>
-    
+
     <xs:simpleType name="sklizenType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="1. sklizen" />
@@ -95,7 +93,7 @@
             <xs:enumeration value="4. sklizen" />
         </xs:restriction>
     </xs:simpleType>
-    
+
     <xs:simpleType name="fermentaceType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="nefermentovany" />
@@ -103,7 +101,7 @@
             <xs:enumeration value="plne fermentovany" />
         </xs:restriction>
     </xs:simpleType>
-    
+
     <xs:simpleType name="oxidaceType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="neoxidovany" />
@@ -111,7 +109,7 @@
             <xs:enumeration value="plne oxidovany" />
         </xs:restriction>
     </xs:simpleType>
-    
+
     <!-- priprava -->
     <xs:complexType name="pripravaType">
         <xs:sequence>
@@ -129,18 +127,18 @@
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
-    
+
     <xs:simpleType name="mnozstviListyRestrictionType">
         <xs:restriction base="xs:positiveInteger" />
     </xs:simpleType>
-    
+
     <xs:simpleType name="jednotkyMnozstviListType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="g" />
             <xs:enumeration value="mg" />
         </xs:restriction>
     </xs:simpleType>
-    
+
     <!-- priprava voda -->
     <xs:complexType name="vodaType">
         <xs:sequence>
@@ -148,7 +146,7 @@
             <xs:element name="teplota" type="teplotaType" />
         </xs:sequence>
     </xs:complexType>
-    
+
     <xs:complexType name="mnozstviVodaType">
         <xs:simpleContent>
             <xs:extension base="mnozstviVodaExtensionType">
@@ -156,12 +154,11 @@
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
-    
+
     <xs:simpleType name="mnozstviVodaExtensionType">
-        <xs:restriction base="xs:positiveInteger">
-        </xs:restriction>
+        <xs:restriction base="xs:positiveInteger"></xs:restriction>
     </xs:simpleType>
-    
+
     <xs:complexType name="teplotaType">
         <xs:simpleContent>
             <xs:extension base="teplotaExtensionType">
@@ -169,32 +166,33 @@
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
-    
+
     <xs:simpleType name="teplotaExtensionType">
         <xs:restriction base="xs:positiveInteger" />
     </xs:simpleType>
-    
+
     <xs:simpleType name="jednotkyMnozstviVodaType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="ml" />
+            <xs:enumeration value="dcl" />
         </xs:restriction>
     </xs:simpleType>
-    
+
     <xs:simpleType name="jednotkyTeplotaType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="°C" />
             <xs:enumeration value="°F" />
         </xs:restriction>
     </xs:simpleType>
-   
-   <!-- priprava cas -->
+
+    <!-- priprava cas -->
     <xs:complexType name="casType">
         <xs:sequence>
             <xs:element name="nalev" type="nalevType" minOccurs="1" maxOccurs="4" />
         </xs:sequence>
         <xs:attribute name="jednotky" type="jednotkyBrewTimeType"></xs:attribute>
     </xs:complexType>
-    
+
     <xs:complexType name="nalevType">
         <xs:simpleContent>
             <xs:extension base="nalevExtensionType">
@@ -202,11 +200,11 @@
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
-    
+
     <xs:simpleType name="nalevExtensionType">
         <xs:restriction base="xs:positiveInteger" />
     </xs:simpleType>
-    
+
     <xs:simpleType name="poradiInterval">
         <xs:restriction base="xs:positiveInteger">
             <xs:enumeration value="1" />
@@ -215,14 +213,14 @@
             <xs:enumeration value="4" />
         </xs:restriction>
     </xs:simpleType>
-    
+
     <xs:simpleType name="jednotkyBrewTimeType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="s" />
             <xs:enumeration value="min" />
         </xs:restriction>
     </xs:simpleType>
-    
+
     <!-- priprava druh nadobi -->
     <xs:complexType name="druhNadobyType">
         <xs:sequence>
@@ -231,38 +229,37 @@
             <xs:element name="konvicka" type="konvickaType" minOccurs="0" maxOccurs="1" />
         </xs:sequence>
     </xs:complexType>
-   
-   <xs:simpleType name="materialType">
-       <xs:restriction base="xs:string">
-           <xs:enumeration value="Tokoname" />
-           <xs:enumeration value="Bizen" />
-           <xs:enumeration value="Porcelan" />
-       </xs:restriction>
-   </xs:simpleType>
-    
+
+    <xs:simpleType name="materialType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Tokoname" />
+            <xs:enumeration value="Bizen" />
+            <xs:enumeration value="Porcelan" />
+        </xs:restriction>
+    </xs:simpleType>
+
     <xs:complexType name="kalisekType">
         <xs:sequence>
             <xs:element name="prumer" type="rozmeryType" />
             <xs:element name="hloubka" type="rozmeryType" />
-            <xs:element name="objem" type="objemType" />
         </xs:sequence>
     </xs:complexType>
-   
-   <xs:complexType name="rozmeryType">
-       <xs:simpleContent>
-           <xs:extension base="xs:positiveInteger">
-               <xs:attribute name="jednotky" type="rozmeryJednotkyType" />
-           </xs:extension>
-       </xs:simpleContent>
-   </xs:complexType>
-    
+
+    <xs:complexType name="rozmeryType">
+        <xs:simpleContent>
+            <xs:extension base="xs:positiveInteger">
+                <xs:attribute name="jednotky" type="rozmeryJednotkyType" />
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
     <xs:simpleType name="rozmeryJednotkyType">
         <xs:restriction base="xs:string">
             <xs:enumeration value="cm" />
             <xs:enumeration value="mm" />
         </xs:restriction>
     </xs:simpleType>
-    
+
     <xs:complexType name="objemType">
         <xs:simpleContent>
             <xs:extension base="xs:positiveInteger">
@@ -270,10 +267,10 @@
             </xs:extension>
         </xs:simpleContent>
     </xs:complexType>
-   
-   <xs:complexType name="konvickaType">
-       <xs:sequence>
-           <xs:element name="objem" type="objemType" />
-       </xs:sequence>
-   </xs:complexType>
+
+    <xs:complexType name="konvickaType">
+        <xs:sequence>
+            <xs:element name="objem" type="objemType" />
+        </xs:sequence>
+    </xs:complexType>
 </xs:schema>
