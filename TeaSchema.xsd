@@ -17,13 +17,19 @@
             <xs:element name="pestovani" type="pestovaniType" minOccurs="0" />
             <xs:element name="vyroba" type="vyrobaType" minOccurs="0" />
             <xs:element name="priprava" type="pripravaType" />
-            <xs:element name="popis" type="xs:string" />
+            <xs:element name="popis" type="popisType" />
         </xs:sequence>
         <xs:attribute name="nazev" type="xs:string" />
         <xs:attribute name="ceskyNazev" type="xs:string" />
-        <xs:attribute name="nazevIMG" type="xs:string" />
+        <xs:attribute name="nazevIMG" type="nazevIMGType" />
     </xs:complexType>
 
+    
+    <xs:simpleType name="nazevIMGType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value=".*\.png" />
+        </xs:restriction>
+    </xs:simpleType>
     <!-- typ caje -->
     <xs:simpleType name="typType">
         <xs:restriction base="xs:string">
@@ -36,7 +42,7 @@
     <!-- druh caje -->
     <xs:simpleType name="druhType">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="Olong" />
+            <xs:enumeration value="Oolong" />
             <xs:enumeration value="PuErh" />
             <xs:enumeration value="Černý čaj" />
             <xs:enumeration value="Bílý čaj" />
@@ -188,11 +194,17 @@
     <!-- priprava cas -->
     <xs:complexType name="casType">
         <xs:sequence>
-            <xs:element name="nalev" type="nalevType" minOccurs="1" maxOccurs="4" />
+            <xs:element name="nalev" type="nalevType" minOccurs="1" maxOccurs="4" >
+                <xs:unique name="nalev">
+                    <xs:selector xpath="caje/caj/priprava/cas/nalev"></xs:selector>
+                    <xs:field xpath="caje/caj/priprava/cas/nalev/@poradi"></xs:field>
+                </xs:unique>
+            </xs:element>
         </xs:sequence>
         <xs:attribute name="jednotky" type="jednotkyBrewTimeType"></xs:attribute>
     </xs:complexType>
-
+       
+    
     <xs:complexType name="nalevType">
         <xs:simpleContent>
             <xs:extension base="nalevExtensionType">
@@ -273,4 +285,11 @@
             <xs:element name="objem" type="objemType" />
         </xs:sequence>
     </xs:complexType>
+    
+    <xs:simpleType name="popisType">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="0" />
+            <xs:maxLength value="255" />
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>

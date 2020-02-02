@@ -22,7 +22,7 @@ body {
   width: 90vw;
   position: relative;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
 }
 
@@ -32,6 +32,7 @@ img {
 
 .container .card {
   position: relative;
+  margin: 0rem 0.5rem;
 }
 
 .container .card .face {

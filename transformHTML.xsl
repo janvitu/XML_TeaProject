@@ -35,7 +35,7 @@
             <xsl:if test="typ='matcha'">
                 <div class="face face1 matcha">
                     <div class="content">
-                        <img src="../img/matcha.png" />
+                        <img src="../img/icons/matcha.png" alt="Matcha picture" />
                         <h3>
                             <xsl:value-of select="@nazev" />
                         </h3>
@@ -45,7 +45,7 @@
             <xsl:if test="typ='sekany'">
                 <div class="face face1 sekany">
                     <div class="content">
-                        <img src="../img/sekany.png" />
+                        <img src="../img/icons/sekany.png" alt="Cuted tea picture" />
                         <h3>
                             <xsl:value-of select="@nazev" />
                         </h3>
@@ -55,7 +55,7 @@
             <xsl:if test="typ='celolisty'">
                 <div class="face face1 celolisty">
                     <div class="content">
-                        <img src="../img/celolisty.png" />
+                        <img src="../img/icons/celolisty.png" alt="High quality tea picture" />
                         <h3>
                             <xsl:value-of select="@nazev" />
                         </h3>
@@ -83,19 +83,20 @@
                 </head>
                 <body>
                     <div class="topWithIMG">
-                        <img src="../img/teas/{$imgName}" />
+                        <img src="../img/teas/{$imgName}" alt="Tea picture" />
                         <section class="teaTop">
-                            <h1>
-                                <xsl:value-of select="@nazev" />
-                            </h1>
-                            <xsl:if test="@ceskyNazev!=''">
-                                <h2>
-                                    <xsl:value-of select="@ceskyNazev" />
-                                </h2>
-                            </xsl:if>
+                            <div class="tea-text">
+                                <h1>
+                                    <xsl:value-of select="@nazev" />
+                                </h1>
+                                <xsl:if test="@ceskyNazev!=''">
+                                    <h2>
+                                        <xsl:value-of select="@ceskyNazev" />
+                                    </h2>
+                                </xsl:if> 
+                            </div>
                         </section>
                     </div>
-
 
                     <section class="teaCenter">
                         <div class="container">

@@ -3,7 +3,7 @@
 <caje xmlns="urn:x-vitj07:schemas:tea:1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:x-vitj07:schemas:tea:1.0 TeaSchema.xsd">
     <caj nazev="Hadong Hwangcha" ceskyNazev="" nazevIMG="hadongHwangcha.png">
         <typ>celolisty</typ>
-        <druh>Olong</druh>
+        <druh>Oolong</druh>
         <puvod>
             <zeme>Jížní Korea</zeme>
             <oblast>Boseong</oblast>
@@ -27,9 +27,9 @@
             </voda>
             <cas jednotky="s">
                 <nalev poradi="1">60</nalev>
+                <nalev poradi="1">60</nalev>
                 <nalev poradi="2">60</nalev>
                 <nalev poradi="3">70</nalev>
-                <nalev poradi="4">80</nalev>
             </cas>
             <druhNadobi>
                 <material>Tokoname</material>
@@ -46,7 +46,7 @@
     </caj>
     <caj nazev="Aged Oolong" ceskyNazev="" nazevIMG="agedOolong.png">
         <typ>celolisty</typ>
-        <druh>Olong</druh>
+        <druh>Oolong</druh>
         <puvod>
             <zeme>Čína</zeme>
             <oblast>Ming Jan</oblast>
@@ -175,5 +175,36 @@
             </druhNadobi>
         </priprava>
         <popis>Nálev světle zelené, jemně mléčné barvy, plné, hutné, intenzivní, sladce krémové chuti s výraznou umami chutí, tóny nezralých vlašských ořechů a lučních trav. V dlouhém chuťovém dozvuku se mísí lehká peprnost s vůní asijské kuchyně.</popis>
+    </caj>
+    <caj nazev="Hong Shui Oolong" nazevIMG="hongShuiOolong.png">
+        <typ>celolisty</typ>
+        <druh>Oolong</druh>
+        <puvod>
+            <zeme>Taiwan</zeme>
+            <oblast>Ming Jian, Nantou County</oblast>
+        </puvod>
+        <pestovani>
+            <nadmorskaVyska>350</nadmorskaVyska>
+        </pestovani>
+        <vyroba>
+            <sklizen>2. sklizen</sklizen>
+            <oxidace>castecne oxidovany</oxidace>
+        </vyroba>
+        <priprava>
+            <mnozstvi jednotky="g">3</mnozstvi>
+            <voda>
+                <mnozstvi jednotky="ml">150</mnozstvi>
+                <teplota jednotky="°C">85</teplota>
+            </voda>
+            <cas jednotky="s">
+                <nalev poradi="1">30</nalev>
+                <nalev poradi="2">40</nalev>
+                <nalev poradi="3">60</nalev>
+            </cas>
+            <druhNadobi>
+                <material>Porcelan</material>
+            </druhNadobi>
+        </priprava>
+        <popis>Zlatavě oranžový nálev plné kulaté hebké chuti s příjemnou mírou sladkosti a vyváženou kombinací tónů suchého ovoce (meruňky, datle a švestky) a karamelové pečenosti. Velmi dlouhý sladce ořechový aftertaste.</popis>
     </caj>
 </caje>
