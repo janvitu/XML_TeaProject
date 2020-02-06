@@ -21,9 +21,10 @@ body {
 .container {
   width: 90vw;
   position: relative;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   justify-content: center;
-  flex-wrap: wrap;
+  align-content: center;
 }
 
 img {
